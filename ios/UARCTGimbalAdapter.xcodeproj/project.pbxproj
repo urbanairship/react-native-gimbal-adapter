@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6EDD872323B17A700031CCEA /* UAGimbalAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD872123B17A700031CCEA /* UAGimbalAdapter.m */; };
+		6EDD872623B17A960031CCEA /* AirshipGimbalAdapterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD872523B17A960031CCEA /* AirshipGimbalAdapterModule.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6E4D17C01EBA7FAA0032DED3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUARCTModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EDD871F23B17A700031CCEA /* UAGimbalAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGimbalAdapter.h; sourceTree = "<group>"; };
+		6EDD872123B17A700031CCEA /* UAGimbalAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGimbalAdapter.m; sourceTree = "<group>"; };
+		6EDD872423B17A960031CCEA /* AirshipGimbalAdapterModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirshipGimbalAdapterModule.h; sourceTree = "<group>"; };
+		6EDD872523B17A960031CCEA /* AirshipGimbalAdapterModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirshipGimbalAdapterModule.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E4D17BF1EBA7FAA0032DED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6EDD871D23B17A700031CCEA /* UARCTGimbalAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				6EDD872423B17A960031CCEA /* AirshipGimbalAdapterModule.h */,
+				6EDD872523B17A960031CCEA /* AirshipGimbalAdapterModule.m */,
+				6EDD871F23B17A700031CCEA /* UAGimbalAdapter.h */,
+				6EDD872123B17A700031CCEA /* UAGimbalAdapter.m */,
+			);
+			path = UARCTGimbalAdapter;
+			sourceTree = "<group>";
+		};
+		9350E0E81CE3B0920041D815 = {
+			isa = PBXGroup;
+			children = (
+				6EDD871D23B17A700031CCEA /* UARCTGimbalAdapter */,
+				93E0043D1CE3C34B000598E3 /* Frameworks */,
+				9350E0F21CE3B0920041D815 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9350E0F21CE3B0920041D815 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93E0043D1CE3C34B000598E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E4D17C11EBA7FAA0032DED3 /* UARCTModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTModule" */;
+			buildPhases = (
+				6E4D17BE1EBA7FAA0032DED3 /* Sources */,
+				6E4D17BF1EBA7FAA0032DED3 /* Frameworks */,
+				6E4D17C01EBA7FAA0032DED3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UARCTModule;
+			productName = UARCTPlugin;
+			productReference = 6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9350E0E91CE3B0920041D815 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 730;
+				ORGANIZATIONNAME = "Facebook,Inc";
+				TargetAttributes = {
+					6E4D17C11EBA7FAA0032DED3 = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9350E0EC1CE3B0920041D815 /* Build configuration list for PBXProject "UARCTGimbalAdapter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 9350E0E81CE3B0920041D815;
+			productRefGroup = 9350E0F21CE3B0920041D815 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E4D17C11EBA7FAA0032DED3 /* UARCTModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E4D17BE1EBA7FAA0032DED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EDD872623B17A960031CCEA /* AirshipGimbalAdapterModule.m in Sources */,
+				6EDD872323B17A700031CCEA /* UAGimbalAdapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6E4D17C91EBA7FAA0032DED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../../ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/common/**",
+					"$(SRCROOT)/../../../ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/ios/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/common/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/ios/**",
+					"$(SRCROOT)/../../AirshipSample/ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(SRCROOT)/../../../ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(AIRSHIP_SEARCH_PATH)/AirshipKit.framework/**",
+					"$(AIRSHIP_SEARCH_PATH)/**",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/React/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../../AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/**",
+					"$(SRCROOT)/../../AirshipSample/ios/Carthage/Build/iOS/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Carthage/Build/iOS/**",
+					"$(SRCROOT)/../../../ios/Carthage/Build/iOS/**",
+					"$(AIRSHIP_SEARCH_PATH)/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6E4D17CA1EBA7FAA0032DED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../../ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/common/**",
+					"$(SRCROOT)/../../../ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/ios/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/common/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/ios/**",
+					"$(SRCROOT)/../../AirshipSample/ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(SRCROOT)/../../../ios/Carthage/Build/iOS/AirshipKit.framework/**",
+					"$(AIRSHIP_SEARCH_PATH)/AirshipKit.framework/**",
+					"$(AIRSHIP_SEARCH_PATH)/**",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/React/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../../AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/**/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Pods/UrbanAirship-iOS-SDK/AirshipKit/AirshipKit/**/**",
+					"$(SRCROOT)/../../AirshipSample/ios/Carthage/Build/iOS/**",
+					"$(SRCROOT)/../sample/AirshipSample/ios/Carthage/Build/iOS/**",
+					"$(SRCROOT)/../../../ios/Carthage/Build/iOS/**",
+					"$(AIRSHIP_SEARCH_PATH)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9350E0F81CE3B0920041D815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9350E0F91CE3B0920041D815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E4D17C91EBA7FAA0032DED3 /* Debug */,
+				6E4D17CA1EBA7FAA0032DED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9350E0EC1CE3B0920041D815 /* Build configuration list for PBXProject "UARCTGimbalAdapter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9350E0F81CE3B0920041D815 /* Debug */,
+				9350E0F91CE3B0920041D815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9350E0E91CE3B0920041D815 /* Project object */;
+}

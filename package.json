@@ -1,0 +1,52 @@
+{
+  "name": "urbanairship-gimbal-adapter-react-native",
+  "version": "1.0.0",
+  "description": "Urban Airship Gimbal Adapter for React Native apps.",
+  "main": "./js/index.js",
+  "author": "Urban Airship",
+  "homepage": "https://github.com/urbanairship/react-native-gimbal-adapter",
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "ios",
+    "android",
+    "urbanairship",
+    "gimbal"
+  ],
+  "devDependencies": {
+    "@babel/core": "7.5.4",
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "@babel/runtime": "7.5.4",
+    "@react-native-community/eslint-config": "0.0.5",
+    "@typescript-eslint/parser": "^1.13.0",
+    "acorn": "^7.0.0",
+    "acorn-jsx": "^5.0.2",
+    "eslint": "^5.16.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "0.55.0",
+    "react": "16.10.1",
+    "react-native": "0.61.1",
+    "typescript": "^3.6.3",
+    "urbanairship-react-native": "^5.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start:android": "react-native run-android --root example/",
+    "generate-docs": "node_modules/.bin/documentation --config documentation.yml build js/** -f html -o out",
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbanairship/react-native-gimbal-adapter.git"
+  },
+  "peerDependencies": {
+    "react": "^16.8",
+    "react-native": ">=0.60"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {}
+}
