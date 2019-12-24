@@ -19,7 +19,7 @@ public class AirshipGimbalAdapterModule extends ReactContextBaseJavaModule {
      *
      * @param reactContext The react context.
      */
-    public UrbanAirshipReactGimbalBridge(ReactApplicationContext reactContext) {
+    public AirshipGimbalAdapterModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 

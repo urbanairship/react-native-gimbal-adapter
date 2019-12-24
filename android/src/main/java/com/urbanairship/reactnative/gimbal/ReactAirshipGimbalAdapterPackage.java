@@ -16,11 +16,11 @@ import java.util.List;
 /**
  * Urban Airship Gimbal react native package.
  */
-public class ReactAirshipGimbalBridgePackage implements ReactPackage {
+public class ReactAirshipGimbalAdapterPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Collections.<NativeModule>singletonList(new UrbanAirshipReactGimbalBridge(reactContext));
+        return Collections.<NativeModule>singletonList(new AirshipGimbalAdapterModule(reactContext));
     }
 
     @NonNull

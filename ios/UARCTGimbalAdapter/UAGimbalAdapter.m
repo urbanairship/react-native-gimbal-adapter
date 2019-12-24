@@ -97,7 +97,7 @@ static id _sharedObject = nil;
     }
 
     [deviceAttributes setValue:[UAirship namedUser].identifier forKey:@"ua.nameduser.id"];
-    [deviceAttributes setValue:[UAirship push].channelID forKey:@"ua.channel.id"];
+    [deviceAttributes setValue:[UAirship channel].identifier forKey:@"ua.channel.id"];
 
     if (deviceAttributes.count) {
         [self.deviceAttributesManager setDeviceAttributes:deviceAttributes];
