@@ -10,7 +10,7 @@ require "json"
   s.homepage     = package['homepage']
   s.license      = package['license']
   s.platform     = :ios, "11.0"
-  s.source       = { :git => "https://github.com/urbanairship/react-native-gimbal-bridge.git", :tag => "{s.version}" }
+  s.source       = { :git => "https://github.com/urbanairship/react-native-gimbal-adapter.git", :tag => "{s.version}" }
   s.source_files  = "ios/**/*.{h,m}"
   s.dependency "React"
   s.dependency "UrbanAirship-iOS-SDK"
