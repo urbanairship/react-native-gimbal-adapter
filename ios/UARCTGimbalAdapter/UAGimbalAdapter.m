@@ -86,7 +86,7 @@ static id _sharedObject = nil;
 
 - (void)startWithGimbalAPIKey:(NSString *)gimbalAPIKey {
     [Gimbal setAPIKey:gimbalAPIKey options:nil];
-    [GMBLPlaceManager startMonitoring];
+    [Gimbal start];
     [self updateDeviceAttributes];
     UA_LDEBUG(@"Started Gimbal Adapter. Gimbal application instance identifier: %@", [Gimbal applicationInstanceIdentifier]);
 }
@@ -112,7 +112,7 @@ static id _sharedObject = nil;
 }
 
 - (void)stop {
-    [GMBLPlaceManager stopMonitoring];
+    [Gimbal stop];
     UA_LDEBUG(@"Stopped Gimbal Adapter.");
 }
 
