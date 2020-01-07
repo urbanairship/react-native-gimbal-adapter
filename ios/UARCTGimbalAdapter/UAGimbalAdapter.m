@@ -55,7 +55,7 @@ static id _sharedObject = nil;
     if (self) {
         self.placeManager = [[GMBLPlaceManager alloc] init];
         self.placeManager.delegate = self;
-        self.deviceAttributesManager = [GMBLDeviceAttributesManager new];
+        self.deviceAttributesManager = [[GMBLDeviceAttributesManager alloc] init];
 
         // Hide the power alert by default
         if (![[NSUserDefaults standardUserDefaults] valueForKey:GimbalAlertViewKey]) {
