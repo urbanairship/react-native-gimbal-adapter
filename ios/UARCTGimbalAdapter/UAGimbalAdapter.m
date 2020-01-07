@@ -21,20 +21,22 @@ NSString *const GimbalSource = @"Gimbal";
 // NSUserDefault Keys
 NSString *const GimbalAlertViewKey = @"gmbl_hide_bt_power_alert_view";
 
+NSString * const UAAirshipReadyNotification = @"com.urbanairship.airship_ready";
+
 @implementation UAGimbalAdapter
 
 static id _sharedObject = nil;
 
 + (void)load {
     [[NSNotificationCenter defaultCenter] addObserver:[UAGimbalAdapter class]
-                                             selector:@selector(handleAppDidFinishLaunching)
-                                                 name:UIApplicationDidFinishLaunchingNotification
+                                             selector:@selector(handleAirshipReady)
+                                                 name:UAAirshipReadyNotification
                                                object:nil];
 }
 
-+ (void)handleAppDidFinishLaunching {
++ (void)handleAirshipReady {
     [[NSNotificationCenter defaultCenter] removeObserver:[UAGimbalAdapter class]
-                                                    name:UIApplicationDidFinishLaunchingNotification
+                                                    name:UAAirshipReadyNotification
                                                   object:nil];
 
     [[UAGimbalAdapter shared] updateDeviceAttributes];
@@ -52,8 +54,8 @@ static id _sharedObject = nil;
     self = [super init];
     if (self) {
         self.placeManager = [[GMBLPlaceManager alloc] init];
-        self.deviceAttributesManager = [GMBLDeviceAttributesManager new];
         self.placeManager.delegate = self;
+        self.deviceAttributesManager = [GMBLDeviceAttributesManager new];
 
         // Hide the power alert by default
         if (![[NSUserDefaults standardUserDefaults] valueForKey:GimbalAlertViewKey]) {
@@ -84,7 +86,7 @@ static id _sharedObject = nil;
 
 - (void)startWithGimbalAPIKey:(NSString *)gimbalAPIKey {
     [Gimbal setAPIKey:gimbalAPIKey options:nil];
-    [Gimbal start];
+    [GMBLPlaceManager startMonitoring];
     [self updateDeviceAttributes];
     UA_LDEBUG(@"Started Gimbal Adapter. Gimbal application instance identifier: %@", [Gimbal applicationInstanceIdentifier]);
 }
@@ -110,7 +112,7 @@ static id _sharedObject = nil;
 }
 
 - (void)stop {
-    [Gimbal stop];
+    [GMBLPlaceManager stopMonitoring];
     UA_LDEBUG(@"Stopped Gimbal Adapter.");
 }
 
