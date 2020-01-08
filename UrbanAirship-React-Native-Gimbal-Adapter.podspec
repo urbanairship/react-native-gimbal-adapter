@@ -13,6 +13,6 @@ require "json"
   s.source       = { :git => "https://github.com/urbanairship/react-native-gimbal-adapter.git", :tag => "{s.version}" }
   s.source_files  = "ios/**/*.{h,m}"
   s.dependency "React"
-  s.dependency "UrbanAirship-iOS-SDK"
+  s.dependency "Airship"
   s.dependency "Gimbal"
 end
