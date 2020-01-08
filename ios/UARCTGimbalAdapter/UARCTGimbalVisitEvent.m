@@ -21,13 +21,12 @@ static dispatch_once_t createDateFormatter;
 
 
 + (instancetype)enterEventWithVisit:(GMBLVisit *)visit {
-    return [[self alloc] initWithVisit:visit name:@"com.urbanairship.gimbal.visit_enter"];
+    return [[self alloc] initWithVisit:visit name:@"com.urbanairship.gimbal.region_enter"];
 }
 
 + (instancetype)exitEventWithVisit:(GMBLVisit *)visit {
-    return [[self alloc] initWithVisit:visit name:@"com.urbanairship.gimbal.visit_exit"];
+    return [[self alloc] initWithVisit:visit name:@"com.urbanairship.gimbal.region_exit"];
 }
-
 
 - (NSString *)eventName {
     return self.name;
@@ -37,6 +36,7 @@ static dispatch_once_t createDateFormatter;
     NSDateFormatter *dateFormatter = [UARCTGimbalVisitEvent dateFormatter];
     NSMutableDictionary *visit = [NSMutableDictionary dictionary];
     [visit setValue:self.visit.visitID forKey:@"identifier"];
+    
     [visit setValue:[dateFormatter stringFromDate:self.visit.departureDate] forKey:@"departureTime"];
     [visit setValue:[dateFormatter stringFromDate:self.visit.arrivalDate] forKey:@"arrivalTime"];
     [visit setValue:@(self.visit.dwellTime ?: 0) forKey:@"dwellTime"];

@@ -8,8 +8,8 @@ import com.gimbal.android.Visit;
 import com.urbanairship.util.DateUtils;
 
 public class VisitEvent implements Event {
-    private static final String EXIT_EVENT_NAME = "com.urbanairship.gimbal.visit_exit";
-    private static final String ENTER_EVENT_NAME = "com.urbanairship.gimbal.visit_enter";
+    private static final String EXIT_EVENT_NAME = "com.urbanairship.gimbal.region_exit";
+    private static final String ENTER_EVENT_NAME = "com.urbanairship.gimbal.region_enter";
 
     private static final String PLACE_IDENTIFIER_KEY = "identifier";
     private static final String PLACE_NAME_KEY = "name";
@@ -48,8 +48,15 @@ public class VisitEvent implements Event {
     @Override
     public WritableMap getBody() {
         WritableMap visitMap = Arguments.createMap();
-        visitMap.putString(VISIT_ARRIVAL_TIME_KEY, DateUtils.createIso8601TimeStamp(visit.getArrivalTimeInMillis()));
-        visitMap.putString(VISIT_DEPARTURE_TIME_KEY, DateUtils.createIso8601TimeStamp(visit.getDepartureTimeInMillis()));
+
+        if (visit.getArrivalTimeInMillis() > 0) {
+            visitMap.putString(VISIT_ARRIVAL_TIME_KEY, DateUtils.createIso8601TimeStamp(visit.getArrivalTimeInMillis()));
+        }
+
+        if (visit.getDepartureTimeInMillis() > 0) {
+            visitMap.putString(VISIT_DEPARTURE_TIME_KEY, DateUtils.createIso8601TimeStamp(visit.getDepartureTimeInMillis()));
+        }
+
         visitMap.putDouble(VISIT_DWELL_TIME_KEY, visit.getDwellTimeInMillis() / 1000.0);
         visitMap.putString(VISIT_IDENTIFIER_KEY, visit.getVisitID());
 
@@ -59,12 +66,15 @@ public class VisitEvent implements Event {
             placeMap.putString(PLACE_NAME_KEY, visit.getPlace().getName());
 
 
-            WritableMap attributesMap = Arguments.createMap();
-            for (String key : visit.getPlace().getAttributes().getAllKeys()) {
-                attributesMap.putString(key, visit.getPlace().getAttributes().getValue(key));
+            if (visit.getPlace().getAttributes() != null) {
+                WritableMap attributesMap = Arguments.createMap();
+                for (String key : visit.getPlace().getAttributes().getAllKeys()) {
+                    attributesMap.putString(key, visit.getPlace().getAttributes().getValue(key));
+                }
+
+                placeMap.putMap(PLACE_ATTRIBUTES_KEY, attributesMap);
             }
 
-            placeMap.putMap(PLACE_ATTRIBUTES_KEY, attributesMap);
             visitMap.putMap(VISIT_PLACE_KEY, placeMap);
         }
 

@@ -10,8 +10,8 @@ import AirshipGimbalEventEmitter from './AirshipGimbalEventEmitter.js'
 const AirshipGimbalAdapterModule = NativeModules.AirshipGimbalAdapterModule;
 const EventEmitter = new AirshipGimbalEventEmitter();
 
-const REGION_ENTER_EVENT = "com.urbanairship.gimbal.visit_enter";
-const REGION_EXIT_EVENT = "com.urbanairship.gimbal.visit_exit";
+const REGION_ENTER_EVENT = "com.urbanairship.gimbal.region_enter";
+const REGION_EXIT_EVENT = "com.urbanairship.gimbal.region_exit";
 
 
 /**
@@ -60,8 +60,8 @@ function convertEventEnum(type: AirshipGimbalEventName): ?string {
 }
 
 export type AirshipGimbalEventName = $Enum<{
-  visitEnter: string,
-  visitExit: string
+  regionEnter: string,
+  regionExit: string
 }>;
 
 /**

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4EDFB823C684D80012635D /* UARCTGimbalEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4EDFB423C684D80012635D /* UARCTGimbalEventEmitter.m */; };
+		6E4EDFB923C684D80012635D /* UARCTGimbalVisitEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4EDFB523C684D80012635D /* UARCTGimbalVisitEvent.m */; };
 		6EDD872323B17A700031CCEA /* UAGimbalAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD872123B17A700031CCEA /* UAGimbalAdapter.m */; };
 		6EDD872623B17A960031CCEA /* AirshipGimbalAdapterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD872523B17A960031CCEA /* AirshipGimbalAdapterModule.m */; };
 /* End PBXBuildFile section */
@@ -24,7 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUARCTModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E4D17C21EBA7FAA0032DED3 /* libUARCTGimbalAdapter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUARCTGimbalAdapter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E4EDFB423C684D80012635D /* UARCTGimbalEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARCTGimbalEventEmitter.m; sourceTree = "<group>"; };
+		6E4EDFB523C684D80012635D /* UARCTGimbalVisitEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARCTGimbalVisitEvent.m; sourceTree = "<group>"; };
+		6E4EDFB623C684D80012635D /* UARCTGimbalVisitEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARCTGimbalVisitEvent.h; sourceTree = "<group>"; };
+		6E4EDFB723C684D80012635D /* UARCTGimbalEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARCTGimbalEventEmitter.h; sourceTree = "<group>"; };
 		6EDD871F23B17A700031CCEA /* UAGimbalAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGimbalAdapter.h; sourceTree = "<group>"; };
 		6EDD872123B17A700031CCEA /* UAGimbalAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGimbalAdapter.m; sourceTree = "<group>"; };
 		6EDD872423B17A960031CCEA /* AirshipGimbalAdapterModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirshipGimbalAdapterModule.h; sourceTree = "<group>"; };
@@ -45,6 +51,10 @@
 		6EDD871D23B17A700031CCEA /* UARCTGimbalAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				6E4EDFB723C684D80012635D /* UARCTGimbalEventEmitter.h */,
+				6E4EDFB423C684D80012635D /* UARCTGimbalEventEmitter.m */,
+				6E4EDFB623C684D80012635D /* UARCTGimbalVisitEvent.h */,
+				6E4EDFB523C684D80012635D /* UARCTGimbalVisitEvent.m */,
 				6EDD872423B17A960031CCEA /* AirshipGimbalAdapterModule.h */,
 				6EDD872523B17A960031CCEA /* AirshipGimbalAdapterModule.m */,
 				6EDD871F23B17A700031CCEA /* UAGimbalAdapter.h */,
@@ -65,7 +75,7 @@
 		9350E0F21CE3B0920041D815 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */,
+				6E4D17C21EBA7FAA0032DED3 /* libUARCTGimbalAdapter.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,9 +90,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6E4D17C11EBA7FAA0032DED3 /* UARCTModule */ = {
+		6E4D17C11EBA7FAA0032DED3 /* UARCTGimbalAdapter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTModule" */;
+			buildConfigurationList = 6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTGimbalAdapter" */;
 			buildPhases = (
 				6E4D17BE1EBA7FAA0032DED3 /* Sources */,
 				6E4D17BF1EBA7FAA0032DED3 /* Frameworks */,
@@ -92,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = UARCTModule;
+			name = UARCTGimbalAdapter;
 			productName = UARCTPlugin;
-			productReference = 6E4D17C21EBA7FAA0032DED3 /* libUARCTModule.a */;
+			productReference = 6E4D17C21EBA7FAA0032DED3 /* libUARCTGimbalAdapter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -125,7 +135,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6E4D17C11EBA7FAA0032DED3 /* UARCTModule */,
+				6E4D17C11EBA7FAA0032DED3 /* UARCTGimbalAdapter */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4EDFB823C684D80012635D /* UARCTGimbalEventEmitter.m in Sources */,
 				6EDD872623B17A960031CCEA /* AirshipGimbalAdapterModule.m in Sources */,
+				6E4EDFB923C684D80012635D /* UARCTGimbalVisitEvent.m in Sources */,
 				6EDD872323B17A700031CCEA /* UAGimbalAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +310,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTModule" */ = {
+		6E4D17C81EBA7FAA0032DED3 /* Build configuration list for PBXNativeTarget "UARCTGimbalAdapter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E4D17C91EBA7FAA0032DED3 /* Debug */,
