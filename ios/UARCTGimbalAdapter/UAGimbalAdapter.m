@@ -7,7 +7,7 @@
 #if __has_include("AirshipLib.h")
 #import "AirshipLib.h"
 #else
-@import AirshipKit;
+@import Airship;
 #endif
 
 
@@ -22,8 +22,6 @@ NSString *const GimbalSource = @"Gimbal";
 NSString *const GimbalAlertViewKey = @"gmbl_hide_bt_power_alert_view";
 NSString *const GimbalAdapterStarted = @"com.urbanairship.gimbal.started";
 
-NSString * const UAAirshipReadyNotification = @"com.urbanairship.airship_ready";
-
 @implementation UAGimbalAdapter
 
 static id _sharedObject = nil;
@@ -31,15 +29,11 @@ static id _sharedObject = nil;
 + (void)load {
     [[NSNotificationCenter defaultCenter] addObserver:[UAGimbalAdapter class]
                                              selector:@selector(handleAirshipReady)
-                                                 name:UAAirshipReadyNotification
+                                                 name:@"com.urbanairship.airship_ready"
                                                object:nil];
 }
 
 + (void)handleAirshipReady {
-    [[NSNotificationCenter defaultCenter] removeObserver:[UAGimbalAdapter class]
-                                                    name:UAAirshipReadyNotification
-                                                  object:nil];
-
     [[UAGimbalAdapter shared] updateDeviceAttributes];
 }
 
