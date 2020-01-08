@@ -79,9 +79,23 @@ export default class Sample extends Component {
   constructor(props) {
     super(props);
     AirshipGimbalAdapter.start(GIMBAL_API_KEY);
+
   }
 
   ...
 }
 ```
 
+## Listening for events
+
+Region enter/exits will automatically generate Airship events that can trigger Automation and Journeys. You can also listen for events directly by adding a listener to the `AirshipGimbalAdapter`:
+
+```
+    AirshipGimbalAdapter.addListener("regionEnter", (event) => {
+      console.log('regionEnter:', JSON.stringify(event));
+    })
+
+    AirshipGimbalAdapter.addListener("regionExit", (event) => {
+      console.log('regionExit:', JSON.stringify(event));
+    })
+```

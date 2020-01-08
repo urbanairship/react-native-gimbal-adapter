@@ -20,6 +20,7 @@ NSString *const GimbalSource = @"Gimbal";
 
 // NSUserDefault Keys
 NSString *const GimbalAlertViewKey = @"gmbl_hide_bt_power_alert_view";
+NSString *const GimbalAdapterStarted = @"com.urbanairship.gimbal.started";
 
 NSString * const UAAirshipReadyNotification = @"com.urbanairship.airship_ready";
 
@@ -87,6 +88,9 @@ static id _sharedObject = nil;
 - (void)startWithGimbalAPIKey:(NSString *)gimbalAPIKey {
     [Gimbal setAPIKey:gimbalAPIKey options:nil];
     [Gimbal start];
+
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GimbalAdapterStarted];
+
     [self updateDeviceAttributes];
     UA_LDEBUG(@"Started Gimbal Adapter. Gimbal application instance identifier: %@", [Gimbal applicationInstanceIdentifier]);
 }
@@ -113,11 +117,12 @@ static id _sharedObject = nil;
 
 - (void)stop {
     [Gimbal stop];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:GimbalAdapterStarted];
     UA_LDEBUG(@"Stopped Gimbal Adapter.");
 }
 
 - (BOOL)isStarted {
-    return [Gimbal isStarted];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:GimbalAdapterStarted] && [Gimbal isStarted];
 }
 
 #pragma mark Gimbal place callbacks
@@ -137,6 +142,10 @@ static id _sharedObject = nil;
 }
 
 - (void)placeManager:(GMBLPlaceManager *)manager didEndVisit:(GMBLVisit *)visit {
+    if (!self.isStarted) {
+        return;
+    }
+
     UA_LDEBUG(@"Exited a Gimbal Place: %@ Entrance date:%@ Exit Date:%@", visit.place.name, visit.arrivalDate, visit.departureDate);
     UARegionEvent *regionEvent = [UARegionEvent regionEventWithRegionID:visit.place.identifier
                                                                  source:GimbalSource
@@ -150,6 +159,10 @@ static id _sharedObject = nil;
 }
 
 - (void)placeManager:(GMBLPlaceManager *)manager didBeginVisit:(GMBLVisit *)visit withDelay:(NSTimeInterval)delayTime {
+    if (!self.isStarted) {
+        return;
+    }
+
     id strongDelegate = self.delegate;
     if ([strongDelegate respondsToSelector:@selector(placeManager:didBeginVisit:withDelay:)]) {
         [strongDelegate placeManager:manager didBeginVisit:visit withDelay:delayTime];
@@ -157,6 +170,9 @@ static id _sharedObject = nil;
 }
 
 - (void)placeManager:(GMBLPlaceManager *)manager didReceiveBeaconSighting:(GMBLBeaconSighting *)sighting forVisits:(NSArray *)visits {
+    if (!self.isStarted) {
+        return;
+    }
     id strongDelegate = self.delegate;
     if ([strongDelegate respondsToSelector:@selector(placeManager:didReceiveBeaconSighting:forVisits:)]) {
         [strongDelegate placeManager:manager didReceiveBeaconSighting:sighting forVisits:visits];
@@ -164,6 +180,9 @@ static id _sharedObject = nil;
 }
 
 - (void)placeManager:(GMBLPlaceManager *)manager didDetectLocation:(CLLocation *)location {
+    if (!self.isStarted) {
+        return;
+    }
     id strongDelegate = self.delegate;
     if ([strongDelegate respondsToSelector:@selector(placeManager:didDetectLocation:)]) {
         [strongDelegate placeManager:manager didDetectLocation:location];
