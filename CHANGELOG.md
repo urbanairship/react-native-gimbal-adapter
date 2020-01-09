@@ -1,3 +1,7 @@
+1.1.1 January 8, 2020
+=====================
+- Fixed build issue with new AirshipGimbalEventEmitter introduced in 1.1.0.
+
 1.1.0 January 8, 2020
 =====================
 - Added listener for region events

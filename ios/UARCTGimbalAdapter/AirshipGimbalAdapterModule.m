@@ -37,6 +37,9 @@ RCT_EXPORT_MODULE();
     return [UARCTGimbalEventEmitter shared].bridge;
 }
 
++ (BOOL)requiresMainQueueSetup {
+    return YES;
+}
 
 #pragma mark -
 #pragma mark Module methods

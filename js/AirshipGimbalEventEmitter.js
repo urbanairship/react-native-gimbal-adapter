@@ -39,4 +39,4 @@ class AirshipGimbalEventEmitter extends NativeEventEmitter {
   }
 }
 
-module.exports = AirshipGimbalAdapterModule;
+module.exports = AirshipGimbalEventEmitter;
