@@ -1,4 +1,4 @@
-# c
+# Airship React Native development
 
 A React Native module for the Airship Gimbal Adapter.
 
@@ -66,7 +66,7 @@ notificationAccentColor = #ff0000
 
 ## Starting the adapter
 
-In order to start the adapter, you will need call `start` with the app's Gimbal API Key:
+In order to start the adapter, your app will need to call `start` with the app's Gimbal API Key:
 
 ```
 import {
