@@ -2,13 +2,15 @@
 
 package com.urbanairship.reactnative.gimbal;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.gimbal.android.Visit;
+import com.urbanairship.analytics.location.RegionEvent;
 import com.urbanairship.gimbal.GimbalAdapter;
-import com.urbanairship.location.RegionEvent;
 
 
 /**
@@ -32,12 +34,12 @@ public class AirshipGimbalAdapterModule extends ReactContextBaseJavaModule {
 
         GimbalAdapter.shared(getReactApplicationContext()).addListener(new GimbalAdapter.Listener() {
             @Override
-            public void onRegionEntered(RegionEvent regionEvent, Visit visit) {
+            public void onRegionEntered(@NonNull RegionEvent regionEvent, @NonNull Visit visit) {
                 EventEmitter.shared().sendEvent(VisitEvent.enterEvent(visit));
             }
 
             @Override
-            public void onRegionExited(RegionEvent regionEvent, Visit visit) {
+            public void onRegionExited(@NonNull RegionEvent regionEvent, @NonNull Visit visit) {
                 EventEmitter.shared().sendEvent(VisitEvent.exitEvent(visit));
             }
         });

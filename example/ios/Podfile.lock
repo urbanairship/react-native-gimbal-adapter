@@ -1,4 +1,16 @@
 PODS:
+  - Airship (13.3.2):
+    - Airship/Automation (= 13.3.2)
+    - Airship/Core (= 13.3.2)
+    - Airship/ExtendedActions (= 13.3.2)
+    - Airship/MessageCenter (= 13.3.2)
+  - Airship/Automation (13.3.2):
+    - Airship/Core
+  - Airship/Core (13.3.2)
+  - Airship/ExtendedActions (13.3.2):
+    - Airship/Core
+  - Airship/MessageCenter (13.3.2):
+    - Airship/Core
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.61.1)
@@ -18,6 +30,7 @@ PODS:
     - boost-for-react-native
     - DoubleConversion
     - glog
+  - Gimbal (2.84)
   - glog (0.3.5)
   - RCTRequired (0.61.1)
   - RCTTypeSafety (0.61.1):
@@ -182,6 +195,8 @@ PODS:
     - React-cxxreact (= 0.61.1)
     - React-jsi (= 0.61.1)
   - React-jsinspector (0.61.1)
+  - react-native-safe-area-context (0.7.3):
+    - React
   - React-RCTActionSheet (0.61.1):
     - React-Core/RCTActionSheetHeaders (= 0.61.1)
   - React-RCTAnimation (0.61.1):
@@ -217,10 +232,21 @@ PODS:
     - React-cxxreact (= 0.61.1)
     - React-jsi (= 0.61.1)
     - ReactCommon/jscallinvoker (= 0.61.1)
-  - UrbanAirship-iOS-SDK (12.1.2)
-  - UrbanAirship-React-Native-Module (5.0.1):
+  - RNCMaskedView (0.1.10):
     - React
-    - UrbanAirship-iOS-SDK (= 12.1.2)
+  - RNGestureHandler (1.6.1):
+    - React
+  - RNReanimated (1.9.0):
+    - React
+  - RNScreens (2.8.0):
+    - React
+  - urbanairship-gimbal-adapter-react-native (2.0.0):
+    - Airship
+    - Gimbal
+    - React
+  - urbanairship-react-native (7.0.0):
+    - Airship (= 13.3.2)
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -240,6 +266,7 @@ DEPENDENCIES:
   - React-jsi (from `../../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-safe-area-context (from `../../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../../node_modules/react-native/Libraries/Blob`)
@@ -250,13 +277,19 @@ DEPENDENCIES:
   - React-RCTText (from `../../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../../node_modules/react-native/ReactCommon`)
-  - UrbanAirship-React-Native-Module (from `../../node_modules/urbanairship-react-native/`)
+  - "RNCMaskedView (from `../../node_modules/@react-native-community/masked-view`)"
+  - RNGestureHandler (from `../../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../../node_modules/react-native-reanimated`)
+  - RNScreens (from `../../node_modules/react-native-screens`)
+  - urbanairship-gimbal-adapter-react-native (from `../../src`)
+  - urbanairship-react-native (from `../../node_modules/urbanairship-react-native`)
   - Yoga (from `../../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - Airship
     - boost-for-react-native
-    - UrbanAirship-iOS-SDK
+    - Gimbal
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -287,6 +320,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-safe-area-context:
+    :path: "../../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
     :path: "../../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -307,17 +342,29 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../../node_modules/react-native/ReactCommon"
-  UrbanAirship-React-Native-Module:
-    :path: "../../node_modules/urbanairship-react-native/"
+  RNCMaskedView:
+    :path: "../../node_modules/@react-native-community/masked-view"
+  RNGestureHandler:
+    :path: "../../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../../node_modules/react-native-screens"
+  urbanairship-gimbal-adapter-react-native:
+    :path: "../../src"
+  urbanairship-react-native:
+    :path: "../../node_modules/urbanairship-react-native"
   Yoga:
     :path: "../../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Airship: ce026f4cc30869566ce17da980907fa149d64855
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 0846affdb2924b01093eb696766ecb0104e409e0
   FBReactNativeSpec: c4cf958af1b97799b524f63a26a1c509c0295b04
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
+  Gimbal: 0743edfbbd1c9ddfd2d4675ecfc5cd85bc0ad57c
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   RCTRequired: 53825815218847d3e9c7b6d92ad2d197a926d51e
   RCTTypeSafety: d886540c518e53064dfa081bf7693fd650699b92
@@ -328,6 +375,7 @@ SPEC CHECKSUMS:
   React-jsi: 61ff417c95e6c3af50fb96399037e80752fb5ce7
   React-jsiexecutor: ee45274419eb95614bbbadb98e20684c5f29996e
   React-jsinspector: 574d597112f9ea3d1b717f6fb62aef764c70dd6f
+  react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   React-RCTActionSheet: af4d951113b1e068bb30611f91b984a7a73597ff
   React-RCTAnimation: 4f518d70bb6890b7c3d9d732f84786d6693ca297
   React-RCTBlob: 072a4888c08de0eef6d04eaa727d25e577e6ff26
@@ -338,10 +386,14 @@ SPEC CHECKSUMS:
   React-RCTText: 81b62b4e7f11531a5154e4daa5617670d5a2d5de
   React-RCTVibration: 8be61459e3749d1fb02cf414edd05b3007622882
   ReactCommon: 4fba5be89efdf0b5720e0adb3d8d7edf6e532db0
-  UrbanAirship-iOS-SDK: bc0d7363f62ac572211ba0191ddeac712d4d4b1f
-  UrbanAirship-React-Native-Module: 8e24cd5af7087da3e8ff89d6468abdcb20965e1d
+  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
+  RNScreens: 62211832af51e0aebcf6e8c36bcf7dd65592f244
+  urbanairship-gimbal-adapter-react-native: 59ce96760cf6f8b49a1682172d9644302b142db0
+  urbanairship-react-native: d3488ddba975f9e822dd1c891fc4f41bd1646424
   Yoga: d8c572ddec8d05b7dba08e4e5f1924004a177078
 
-PODFILE CHECKSUM: bf69acb7963522b70b136305d7dc293ad01fbee0
+PODFILE CHECKSUM: 70675da9ac746180ca6e2ff1dbc291fdde79b1e2
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.2

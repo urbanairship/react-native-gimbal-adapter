@@ -1,6 +1,6 @@
-# Urban Airship React Native
+# c
 
-A React Native module for the Urban Airship Gimbal Adapter.
+A React Native module for the Airship Gimbal Adapter.
 
 ### Issues
 
@@ -66,6 +66,8 @@ notificationAccentColor = #ff0000
 
 ## Starting the adapter
 
+In order to start the adapter, you will need call `start` with the app's Gimbal API Key:
+
 ```
 import {
   AirshipGimbalAdapter,
@@ -77,9 +79,8 @@ import {
 export default class Sample extends Component {
 
   constructor(props) {
-    super(props);
-    AirshipGimbalAdapter.start(GIMBAL_API_KEY);
-
+    super(props)
+    AirshipGimbalAdapter.start(<YOUR_GIMBAL_API_KEY>)
   }
 
   ...
@@ -92,10 +93,10 @@ Region enter/exits will automatically generate Airship events that can trigger A
 
 ```
     AirshipGimbalAdapter.addListener("regionEnter", (event) => {
-      console.log('regionEnter:', JSON.stringify(event));
+      console.log('regionEnter:', JSON.stringify(event))
     })
 
     AirshipGimbalAdapter.addListener("regionExit", (event) => {
-      console.log('regionExit:', JSON.stringify(event));
+      console.log('regionExit:', JSON.stringify(event))
     })
 ```
