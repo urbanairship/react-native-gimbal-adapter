@@ -55,7 +55,8 @@
     "urbanairship-react-native": ">=7.0.0"
   },
   "scripts": {
-    "prepare": "bob build"
+    "prepare": "bob build",
+    "generate-docs": "typedoc --out docs js/"
   },
   "license": "Apache-2.0",
   "dependencies": {},

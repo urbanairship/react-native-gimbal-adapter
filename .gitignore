@@ -53,6 +53,7 @@ AirshipConfig.plist
 
 #jsdoc
 out/
+docs/
 
 sample/**/google-services.json
 
