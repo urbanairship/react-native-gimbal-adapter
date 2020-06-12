@@ -2,15 +2,12 @@
 
 package com.urbanairship.reactnative.gimbal;
 
-import android.app.Application;
-
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.gimbal.android.Gimbal;
 import com.gimbal.android.PrivacyManager;
 import com.gimbal.android.Visit;
 import com.urbanairship.analytics.location.RegionEvent;
@@ -21,8 +18,6 @@ import com.urbanairship.gimbal.GimbalAdapter;
  * React module for Urban Airship Gimbal Bridge.
  */
 public class AirshipGimbalAdapterModule extends ReactContextBaseJavaModule {
-
-    private String apiKey;
 
     /**
      * Default constructor.
@@ -83,13 +78,16 @@ public class AirshipGimbalAdapterModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setGimbalApiKey(String apiKey) {
-        this.apiKey = apiKey;
-        Gimbal.setApiKey((Application) getReactApplicationContext().getApplicationContext(), apiKey);
+        if (apiKey != null) {
+            GimbalAdapter.shared(getReactApplicationContext()).enableGimbalApiKeyManagement(apiKey);
+        } else {
+            GimbalAdapter.shared(getReactApplicationContext()).disableGimbalApiKeyManagement();
+        }
     }
 
     @ReactMethod
     public void start(final Promise promise) {
-        GimbalAdapter.shared(getReactApplicationContext()).startWithPermissionPrompt(apiKey, new GimbalAdapter.PermissionResultCallback() {
+        GimbalAdapter.shared(getReactApplicationContext()).startWithPermissionPrompt(new GimbalAdapter.PermissionResultCallback() {
             @Override
             public void onResult(boolean started) {
                 promise.resolve(started);
