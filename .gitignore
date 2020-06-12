@@ -32,7 +32,7 @@ Carthage/
 #
 node_modules/
 npm-debug.log
-
+yarn-error.log
 
 
 *.DS_Store
@@ -55,3 +55,6 @@ AirshipConfig.plist
 out/
 
 sample/**/google-services.json
+
+# generated files
+lib/

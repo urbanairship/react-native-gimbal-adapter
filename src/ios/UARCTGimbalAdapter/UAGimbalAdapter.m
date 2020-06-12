@@ -79,8 +79,7 @@ static id _sharedObject = nil;
                                             forKey:GimbalAlertViewKey];
 }
 
-- (void)startWithGimbalAPIKey:(NSString *)gimbalAPIKey {
-    [Gimbal setAPIKey:gimbalAPIKey options:nil];
+- (void)start {
     [Gimbal start];
 
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GimbalAdapterStarted];

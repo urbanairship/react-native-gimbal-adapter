@@ -1,29 +1,35 @@
-// @flow
-'use strict';
-
 import {
   NativeModules,
   NativeEventEmitter,
-  Platform
-} from 'react-native';
+  EmitterSubscription,
+  Platform,
+} from "react-native";
 
-const AirshipGimbalAdapterModule = NativeModules.AirshipGimbalAdapterModule;
+const { AirshipGimbalAdapterModule } = NativeModules;
 
-class AirshipGimbalEventEmitter extends NativeEventEmitter {
-
+/**
+ * @ignore
+ */
+export default class AirshipGimbalEventEmitter extends NativeEventEmitter {
   constructor() {
     super(AirshipGimbalAdapterModule);
   }
 
-  addListener(eventType: string, listener: Function, context: ?Object): EmitterSubscription {
-    if (Platform.OS === 'android') {
+  addListener(
+    eventType: string,
+    listener: Function,
+    context?: Object
+  ): EmitterSubscription {
+    if (Platform.OS === "android") {
       AirshipGimbalAdapterModule.addAndroidListener(eventType);
     }
+    // @ts-ignore
     return super.addListener(eventType, listener, context);
   }
 
   removeAllListeners(eventType: string) {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === "android") {
+      // @ts-ignore
       const count = this.listeners(eventType).length;
       AirshipGimbalAdapterModule.removeAndroidListeners(count);
     }
@@ -32,11 +38,9 @@ class AirshipGimbalEventEmitter extends NativeEventEmitter {
   }
 
   removeSubscription(subscription: EmitterSubscription) {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === "android") {
       AirshipGimbalAdapterModule.removeAndroidListeners(1);
     }
     super.removeSubscription(subscription);
   }
 }
-
-module.exports = AirshipGimbalEventEmitter;

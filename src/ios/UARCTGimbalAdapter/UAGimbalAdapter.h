@@ -34,9 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Starts the adapter.
- * @param gimbalAPIKey The Gimbal API key. Can be nil if Gimbal is already started.
  */
-- (void)startWithGimbalAPIKey:(nullable NSString *)gimbalAPIKey;
+- (void)start;
 
 /**
  * Stops the adapter.

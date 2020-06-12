@@ -63,7 +63,6 @@ notificationIcon = ic_notification
 notificationAccentColor = #ff0000
 ```
 
-
 ## Starting the adapter
 
 In order to start the adapter, your app will need to call `start` with the app's Gimbal API Key:
@@ -71,20 +70,16 @@ In order to start the adapter, your app will need to call `start` with the app's
 ```
 import {
   AirshipGimbalAdapter,
-  UACustomEvent,
-} from 'urbanairship-gimbal-adapter-react-native'
+  ConsentType,
+  ConsentState,
+  ConsentRequirement,
+  RegionEventType
+ } from 'urbanairship-gimbal-adapter-react-native'
 
 ...
 
-export default class Sample extends Component {
-
-  constructor(props) {
-    super(props)
-    AirshipGimbalAdapter.start(<YOUR_GIMBAL_API_KEY>)
-  }
-
-  ...
-}
+AirshipGimbalAdapter.setGimbalApiKey(<YOUR_GIMBAL_API_KEY>)
+AirshipGimbalAdapter.start()
 ```
 
 ## Listening for events
@@ -92,11 +87,32 @@ export default class Sample extends Component {
 Region enter/exits will automatically generate Airship events that can trigger Automation and Journeys. You can also listen for events directly by adding a listener to the `AirshipGimbalAdapter`:
 
 ```
-    AirshipGimbalAdapter.addListener("regionEnter", (event) => {
+    AirshipGimbalAdapter.addListener(RegionEventType.Enter, (event) => {
       console.log('regionEnter:', JSON.stringify(event))
     })
 
-    AirshipGimbalAdapter.addListener("regionExit", (event) => {
+    AirshipGimbalAdapter.addListener(RegionEventType.Exit, (event) => {
       console.log('regionExit:', JSON.stringify(event))
+    })
+```
+
+## GDPR
+
+The adapter exposes Gimbal's GDPR APIs:
+
+
+Check if GDPR consent is required:
+```
+    AirshipGimbalAdapter.getGdprConsentRequirement().then ((requirement) => {
+      console.log('GDPR consent required:', requirement)
+    })
+```
+
+Setting consent:
+```
+    AirshipGimbalAdapter.setUserConsent(ConsentType.Places, ConsentState.Granted)
+
+    AirshipGimbalAdapter.getUserConsent(ConsentType.Places, (state) => {
+      console.log('places consent:', state)
     })
 ```
