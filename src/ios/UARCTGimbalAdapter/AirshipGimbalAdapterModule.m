@@ -54,7 +54,7 @@ RCT_EXPORT_METHOD(removeListeners:(NSInteger)count) {
 }
 
 RCT_EXPORT_METHOD(setGimbalApiKey:(NSString *)gimbalApiKey) {
-    [Gimbal setAPIKey:gimbalApiKey options:nil];
+    [UAGimbalAdapter shared].gimbalApiKey = gimbalApiKey;
 }
 
 RCT_REMAP_METHOD(start,

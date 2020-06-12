@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak) id<GMBLPlaceManagerDelegate> delegate;
 
+@property (nonatomic, copy, nullable) NSString *gimbalApiKey;
+
 /**
  * Returns the shared `GimbalAdapter` instance.
  *
@@ -41,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Stops the adapter.
  */
 - (void)stop;
+
 
 @end
 
