@@ -2,7 +2,14 @@ import { NativeModules, EmitterSubscription } from "react-native";
 
 import AirshipGimbalEventEmitter from "./AirshipGimbalEventEmitter";
 
+/**
+ * @hidden
+ */
 const AirshipGimbalAdapterModule = NativeModules.AirshipGimbalAdapterModule;
+
+/**
+ * @hidden
+ */
 const eventEmitter = new AirshipGimbalEventEmitter();
 
 /**
@@ -120,6 +127,9 @@ export interface RegionEvent {
   place: Place;
 }
 
+/**
+ * @hidden
+ */
 function convertEventEnum(eventType: RegionEventType): string {
   if (eventType === RegionEventType.Enter) {
     return "com.urbanairship.gimbal.region_enter";
@@ -199,10 +209,9 @@ export const AirshipGimbalAdapter = {
    */
   addListener(
     eventType: RegionEventType,
-    listener: Function
+    listener: (event: RegionEvent) => void
   ): EmitterSubscription {
     var name = convertEventEnum(eventType);
-    // @ts-ignore
     return eventEmitter.addListener(name, listener);
   },
 
@@ -217,7 +226,6 @@ export const AirshipGimbalAdapter = {
     listener: (event: RegionEvent) => void
   ) {
     var name = convertEventEnum(eventType);
-    // @ts-ignore
     eventEmitter.removeListener(name, listener);
   },
 };

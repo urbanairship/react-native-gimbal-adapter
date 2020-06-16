@@ -1,16 +1,12 @@
 node_modules
 npm-debug.log
 yarn-error.log
-example
 
 *.DS_Store
 *.orig
 *.swo
 *.swp
 *.iml
-
-#jsdoc
-out/
 
 example
 .github

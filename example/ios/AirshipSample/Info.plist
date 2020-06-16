@@ -37,11 +37,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need location for example.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>>Need location for example.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

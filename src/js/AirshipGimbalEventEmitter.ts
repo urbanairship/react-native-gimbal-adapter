@@ -5,10 +5,13 @@ import {
   Platform,
 } from "react-native";
 
+/**
+ * @hidden
+ */
 const { AirshipGimbalAdapterModule } = NativeModules;
 
 /**
- * @ignore
+ * @hidden
  */
 export default class AirshipGimbalEventEmitter extends NativeEventEmitter {
   constructor() {
@@ -17,7 +20,7 @@ export default class AirshipGimbalEventEmitter extends NativeEventEmitter {
 
   addListener(
     eventType: string,
-    listener: Function,
+    listener: (event: any) => void,
     context?: Object
   ): EmitterSubscription {
     if (Platform.OS === "android") {

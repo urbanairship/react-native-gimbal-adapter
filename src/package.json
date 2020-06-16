@@ -56,7 +56,7 @@
   },
   "scripts": {
     "prepare": "bob build",
-    "generate-docs": "typedoc --out docs js/"
+    "generate-docs": "typedoc --excludeNotDocumented --out docs js/"
   },
   "license": "Apache-2.0",
   "dependencies": {},
