@@ -189,4 +189,8 @@ task copyDownloadableDepsToLibs(type: Copy) {
 apply from: file("../../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle");
 // edited for example app
 applyNativeModulesAppBuildGradle(project, "../..")
-apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
+
+def googleServicesFile = rootProject.file('app/google-services.json')
+if (googleServicesFile.exists()) {
+    apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
+}

@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak) id<GMBLPlaceManagerDelegate> delegate;
 
+@property (nonatomic, copy, nullable) NSString *gimbalApiKey;
+
 /**
  * Returns the shared `GimbalAdapter` instance.
  *
@@ -34,14 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Starts the adapter.
- * @param gimbalAPIKey The Gimbal API key. Can be nil if Gimbal is already started.
  */
-- (void)startWithGimbalAPIKey:(nullable NSString *)gimbalAPIKey;
+- (void)start;
 
 /**
  * Stops the adapter.
  */
 - (void)stop;
+
 
 @end
 

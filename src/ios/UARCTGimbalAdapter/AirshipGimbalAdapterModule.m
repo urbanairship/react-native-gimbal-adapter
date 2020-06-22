@@ -4,6 +4,7 @@
 #import "UAGimbalAdapter.h"
 #import "UARCTGimbalEventEmitter.h"
 #import "UARCTGimbalVisitEvent.h"
+#import <Gimbal/Gimbal.h>
 
 @interface AirshipGimbalAdapterModule() <GMBLPlaceManagerDelegate>
 
@@ -52,12 +53,15 @@ RCT_EXPORT_METHOD(removeListeners:(NSInteger)count) {
     [[UARCTGimbalEventEmitter shared] removeListeners:count];
 }
 
+RCT_EXPORT_METHOD(setGimbalApiKey:(NSString *)gimbalApiKey) {
+    [UAGimbalAdapter shared].gimbalApiKey = gimbalApiKey;
+}
+
 RCT_REMAP_METHOD(start,
-                 apiKey:(NSString *)apiKey
                  start_resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
 
-    [[UAGimbalAdapter shared] startWithGimbalAPIKey:apiKey];
+    [[UAGimbalAdapter shared] start];
     // TODO resolve reject based on the prompt
     resolve(@(YES));
 }
@@ -70,6 +74,27 @@ RCT_REMAP_METHOD(isStarted,
                  isStarted_resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
     resolve(@([UAGimbalAdapter shared].isStarted));
+}
+
+RCT_REMAP_METHOD(getGdprConsentRequirement,
+                 getGdprConsentRequirement_resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+    GDPRConsentRequirement requirement = [GMBLPrivacyManager gdprConsentRequirement];
+    resolve([self convertConsentRequirement:requirement]);
+}
+
+RCT_REMAP_METHOD(getUserConsent,
+                 getUserConsent_type:(NSString *)type
+                 getUserConsent_resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+    GMBLConsentState state = [GMBLPrivacyManager userConsentFor:[self convertConsentTypeString:type]];
+
+    resolve([self convertConsentState:state]);
+}
+
+RCT_EXPORT_METHOD(setUserConsent:(NSString *)type state:(NSString *)state) {
+    [GMBLPrivacyManager setUserConsentFor:[self convertConsentTypeString:type]
+                                  toState:[self convertConsentStateString:state]];
 }
 
 
@@ -86,5 +111,52 @@ RCT_REMAP_METHOD(isStarted,
     [[UARCTGimbalEventEmitter shared] sendEvent:event];
 }
 
+#pragma mark -
+#pragma mark Converters
+
+
+- (GMBLConsentType)convertConsentTypeString:(NSString *)consentType {
+    if ([consentType isEqualToString:@"places"]) {
+        return GMBLPlacesConsent;
+    }
+    return 0;
+}
+
+- (GMBLConsentState)convertConsentStateString:(NSString *)consentState {
+    if ([consentState isEqualToString:@"granted"]) {
+        return GMBLConsentGranted;
+    } else if ([consentState isEqualToString:@"refused"]) {
+        return GMBLConsentRefused;
+    } else {
+        return GMBLConsentUnknown;
+    }
+}
+
+- (NSString *)convertConsentState:(GMBLConsentState)consentState {
+    switch (consentState) {
+        case GMBLConsentGranted:
+            return @"granted";
+        case GMBLConsentRefused:
+            return @"refused";
+        case GMBLConsentUnknown:
+            return @"unknown";
+        default:
+            return nil;
+
+    }
+}
+
+- (NSString *)convertConsentRequirement:(GDPRConsentRequirement)consentRequirement {
+    switch (consentRequirement) {
+        case GMBLGDPRConsentRequired:
+            return @"required";
+        case GMBLGDPRConsentNotRequired:
+            return @"notRequired";
+        case GMBLGDPRConsentRequirementUnknown:
+            return @"unknown";
+        default:
+            return nil;
+    }
+}
 
 @end

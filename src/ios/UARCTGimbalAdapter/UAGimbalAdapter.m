@@ -20,7 +20,8 @@ NSString *const GimbalSource = @"Gimbal";
 
 // NSUserDefault Keys
 NSString *const GimbalAlertViewKey = @"gmbl_hide_bt_power_alert_view";
-NSString *const GimbalAdapterStarted = @"com.urbanairship.gimbal.started";
+NSString *const UAGimbalAdapterStarted = @"com.urbanairship.gimbal.started";
+NSString *const UAGimbalAdapterApiKey = @"com.urbanairship.gimbal.api_key";
 
 @implementation UAGimbalAdapter
 
@@ -37,6 +38,20 @@ static id _sharedObject = nil;
     [[UAGimbalAdapter shared] updateDeviceAttributes];
 }
 
+- (void)setGimbalApiKey:(NSString *)gimbalApiKey {
+
+    if (gimbalApiKey) {
+        [[NSUserDefaults standardUserDefaults] setValue:gimbalApiKey forKey:UAGimbalAdapterApiKey];
+        [Gimbal setAPIKey:gimbalApiKey options:nil];
+    } else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:UAGimbalAdapterApiKey];
+    }
+}
+
+- (NSString *)gimbalApiKey {
+    return [[NSUserDefaults standardUserDefaults] valueForKey:UAGimbalAdapterApiKey];
+}
+
 + (instancetype)shared {
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
@@ -48,6 +63,10 @@ static id _sharedObject = nil;
 - (instancetype)init {
     self = [super init];
     if (self) {
+        if (self.gimbalApiKey) {
+            [Gimbal setAPIKey:self.gimbalApiKey options:nil];
+        }
+
         self.placeManager = [[GMBLPlaceManager alloc] init];
         self.placeManager.delegate = self;
         self.deviceAttributesManager = [[GMBLDeviceAttributesManager alloc] init];
@@ -61,6 +80,10 @@ static id _sharedObject = nil;
                                                  selector:@selector(updateDeviceAttributes)
                                                      name:UAChannelCreatedEvent
                                                    object:nil];
+
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:UAGimbalAdapterStarted]) {
+            [self start];
+        }
     }
 
     return self;
@@ -79,11 +102,10 @@ static id _sharedObject = nil;
                                             forKey:GimbalAlertViewKey];
 }
 
-- (void)startWithGimbalAPIKey:(NSString *)gimbalAPIKey {
-    [Gimbal setAPIKey:gimbalAPIKey options:nil];
+- (void)start {
     [Gimbal start];
 
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GimbalAdapterStarted];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:UAGimbalAdapterStarted];
 
     [self updateDeviceAttributes];
     UA_LDEBUG(@"Started Gimbal Adapter. Gimbal application instance identifier: %@", [Gimbal applicationInstanceIdentifier]);
@@ -111,12 +133,12 @@ static id _sharedObject = nil;
 
 - (void)stop {
     [Gimbal stop];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:GimbalAdapterStarted];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:UAGimbalAdapterStarted];
     UA_LDEBUG(@"Stopped Gimbal Adapter.");
 }
 
 - (BOOL)isStarted {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:GimbalAdapterStarted] && [Gimbal isStarted];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:UAGimbalAdapterStarted] && [Gimbal isStarted];
 }
 
 #pragma mark Gimbal place callbacks

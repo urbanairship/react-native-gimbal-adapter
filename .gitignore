@@ -29,13 +29,10 @@ Pods/
 Carthage/
 
 # node.js
-#
 node_modules/
 npm-debug.log
+yarn-error.log
 
-
-
-*.DS_Store
 *.orig
 *.swo
 *.swp
@@ -45,13 +42,13 @@ npm-debug.log
 local.properties
 build.properties
 airshipconfig.properties
+google-services.json
 .gradle
 .idea
 
 # iOS
 AirshipConfig.plist
 
-#jsdoc
-out/
-
-sample/**/google-services.json
+# generated files
+lib/
+docs/
