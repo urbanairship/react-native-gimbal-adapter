@@ -29,7 +29,7 @@
     "eslint": "^5.16.0",
     "jest": "^24.9.0",
     "jetifier": "^1.6.4",
-    "metro-react-native-babel-preset": "0.55.0",
+    "metro-react-native-babel-preset": "0.59.0",
     "react": "16.10.1",
     "react-native": "0.61.1",
     "typedoc": "^0.17.7",

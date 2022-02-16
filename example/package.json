@@ -15,7 +15,7 @@
     "react-navigation-stack": "^2.3.7",
     "react-navigation-tabs": "^2.5.5",
     "urbanairship-gimbal-adapter-react-native": "*",
-    "urbanairship-react-native": "^7.0.0"
+    "urbanairship-react-native": "^13.2.1"
   },
   "scripts": {
     "run:android": "react-native run-android",

@@ -1,4 +1,3 @@
-use_frameworks!
 platform :ios, '11.0'
 $node_modules_path = '../../node_modules'
 require_relative "#{$node_modules_path}/@react-native-community/cli-platform-ios/native_modules"

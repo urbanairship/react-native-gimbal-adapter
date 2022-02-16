@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 29
+        minSdkVersion 21
+        targetSdkVersion 31
     }
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.urbanairship.android:gimbal-adapter:7.0.0'
+    implementation 'com.urbanairship.android:gimbal-adapter:7.3.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 }
