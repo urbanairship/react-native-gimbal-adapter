@@ -7,7 +7,7 @@
 #if __has_include("AirshipLib.h")
 #import "AirshipLib.h"
 #else
-@import Airship;
+@import AirshipKit;
 #endif
 
 
@@ -78,7 +78,7 @@ static id _sharedObject = nil;
 
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateDeviceAttributes)
-                                                     name:UAChannelCreatedEvent
+                                                     name:UAChannel.channelCreatedEvent
                                                    object:nil];
 
         if ([[NSUserDefaults standardUserDefaults] boolForKey:UAGimbalAdapterStarted]) {
@@ -118,7 +118,7 @@ static id _sharedObject = nil;
         [deviceAttributes addEntriesFromDictionary:[self.deviceAttributesManager getDeviceAttributes]];
     }
 
-    [deviceAttributes setValue:[UAirship namedUser].identifier forKey:@"ua.nameduser.id"];
+    [deviceAttributes setValue:[UAirship contact].namedUserID forKey:@"ua.nameduser.id"];
     [deviceAttributes setValue:[UAirship channel].identifier forKey:@"ua.channel.id"];
 
     if (deviceAttributes.count) {
@@ -126,9 +126,9 @@ static id _sharedObject = nil;
         UA_LDEBUG(@"Set Gimbal Device Attributes: %@", [deviceAttributes description]);
     }
 
-    UAAssociatedIdentifiers *identifiers = [[UAirship shared].analytics currentAssociatedDeviceIdentifiers];
+    UAAssociatedIdentifiers *identifiers = [UAirship.analytics currentAssociatedDeviceIdentifiers];
     [identifiers setIdentifier:[Gimbal applicationInstanceIdentifier] forKey:@"com.urbanairship.gimbal.aii"];
-    [[UAirship shared].analytics associateDeviceIdentifiers:identifiers];
+    [UAirship.analytics associateDeviceIdentifiers:identifiers];
 }
 
 - (void)stop {
@@ -149,7 +149,7 @@ static id _sharedObject = nil;
                                                                  source:GimbalSource
                                                           boundaryEvent:UABoundaryEventEnter];
 
-    [[UAirship shared].analytics addEvent:regionEvent];
+    [UAirship.analytics addEvent:regionEvent];
 
     id strongDelegate = self.delegate;
     if ([strongDelegate respondsToSelector:@selector(placeManager:didBeginVisit:)]) {
@@ -166,7 +166,7 @@ static id _sharedObject = nil;
     UARegionEvent *regionEvent = [UARegionEvent regionEventWithRegionID:visit.place.identifier
                                                                  source:GimbalSource
                                                           boundaryEvent:UABoundaryEventExit];
-    [[UAirship shared].analytics addEvent:regionEvent];
+    [UAirship.analytics addEvent:regionEvent];
 
     id strongDelegate = self.delegate;
     if ([strongDelegate respondsToSelector:@selector(placeManager:didEndVisit:)]) {
