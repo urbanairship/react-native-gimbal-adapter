@@ -300,7 +300,7 @@ PODS:
     - React-Core
   - RNScreens (2.18.1):
     - React-Core
-  - urbanairship-gimbal-adapter-react-native (3.0.0):
+  - urbanairship-gimbal-adapter-react-native (3.1.0):
     - Airship
     - Gimbal
     - React
@@ -470,7 +470,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
-  urbanairship-gimbal-adapter-react-native: ba90e0b4f3f7f3348aa60ddc2eba623399a6d377
+  urbanairship-gimbal-adapter-react-native: a6468b894e0d345c94c29f0591dd48b74cdce827
   urbanairship-react-native: 1703817a61fcfc30c01371e63841a80b99564a76
   Yoga: 9b6696970c3289e8dea34b3eda93f23e61fb8121
 
