@@ -1,5 +1,8 @@
 # React Native Airship Gimbal Adapter
 
+## Version 3.1.0 March 08, 2022
+- Update Gimbal Adapter to 7.3.0.
+
 ## Version 3.0.0 June 12, 2020
 - Removed apiKey from the `start` method, instead apps should set the API Key with `setGimbalApiKey`.
 - Added Gimbal privacy manager APIs.
