@@ -2,6 +2,7 @@
 
 A React Native module for the Airship Gimbal Adapter.
 
+**_Please note: this repo is no longer supported. Please use [this](https://github.com/gimbalinc/airship-adapter-react-native) official Infillion version instead._**
 ### Issues
 
 Please visit https://support.urbanairship.com/ for any issues integrating or using this module.
